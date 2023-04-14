@@ -24,8 +24,10 @@
 
 [Reference Link](#-reference-link)
 
+[A-ha!](#-a-ha-)
+
 ## 🔑 Keyword
-`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `alignment`, `Supplement accessibility data`
+`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `alignment`, `Supplement accessibility data`, `Label`
 
 ## 📚 Study
 ### SwiftUI
@@ -62,23 +64,47 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
 - SwiftUI에는 접근성 기능이 내장되어 있음
 - 약간의 추가 작업으로 접근성 지원을 받을 수 있음
 - 예) Text view의 문자열 콘텐츠에 자동으로 접근 가능, 하지만 사용자의 접근성 환경을 개선하기 위해 추론된 데이터를 보완해야 할 수 있음
+- `.accessibilityAddTraits()`를 사용하면 특성을 추가해서 읽어주는 것, 예시대로 `.isHeader`를 넣으면 사용한 요소와 함께 "heading"이라고 읽어주어 view 의 information architecture를 전달하는 데 도움이 됨
 
+### Label
+- 제목이 있는 아이콘으로 구성된 표준 레이블
+- 가장 일반적인 것은 아이콘 + 레이블 조합
+- `.labelStyle()` 수정자를 통해 타이틀만 보이게, 아이콘만 보이게, 둘 다 보이게 설정할 수 있음
+- 기본 스타일을 수정하여 커스터마이징된 레이블 스타일을 만들 수도 있음
+- 완전히 새로운 스타일을 만들고 싶은 경우 LabelStyle 프로토콜을 채택 후 LabelStyleConfiguration을 구현하면 됨
+- 레이블 그룹에 공통 레이블 스타일을 적용하려면 포함된 뷰 계층 구조에 스타일을 적용하면 됨
+    - TrailingIconLabelStyle.swift 파일 참고!
+- icon 부분에 SF Symbol과 같은 이미지 대신 programmatically하게 view를 사용하여 레이블을 만드는 것도 가능함    
+예) `Circle()` 
 
 ## 🏀 Trouble Shooting
 
 ## ✅ Check List
-- [ ] 선언형 프레임워크란?
-- [ ] UIKit과 SwiftUI의 차이점
-
 - [ ] iOS App Dev Tutorials (SwiftUI)
-    - [ ] SwiftUI essentials
+    - [x] SwiftUI essentials
     - [ ] Views
     - [ ] Navigation and modal presentation
     - [ ] Passing Data
     - [ ] State management
 
+- [ ] 선언형 프레임워크란?
+- [ ] UIKit과 SwiftUI의 차이점
+- [ ] 미리보기에 static으로 프로퍼티를 선언해주는 이유?(Getting started with Scrumdinger)
+- [ ] where절 사용에 대한 공부(Using stacks to arrange views)
 
 ## 🔗 Reference Link
 - 튜토리얼 시 숙지가 필요한 Swift 공식문서
     - [The Basics](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/)
     - [Closures](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/)
+
+## 💡 A-ha!
+- Creating a card view 파트의 Check Your Understanding
+    > Which framework should you import to define the structure?
+    ```swift
+    struct Person {
+       var name: String
+       var age: Int
+       var favoriteColor: Color
+    }
+    ```
+    Foundation을 선택했는데 Color는 SwiftUI에 속해있는 것이다...! UIKit는 UIColor였음!
