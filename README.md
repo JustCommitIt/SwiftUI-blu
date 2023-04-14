@@ -21,9 +21,6 @@
 [Check List](#-check-list)
 
 ## 🔑 Keyword
-`SwiftUI` , 
-
-## 🔑 Keyword
 `SwiftUI` , `Stack`, `Text`, `SF Symbols`, `alignment`, `Supplement accessibility data`
 
 ## 📚 Study
