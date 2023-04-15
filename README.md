@@ -27,14 +27,19 @@
 [A-ha!](#-a-ha-)
 
 ## 🔑 Keyword
-`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `alignment`, `Supplement accessibility data`, `Label`
+`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `HorizontalAlignment`, `Supplement accessibility data`, `Label`, `List`
 
 ## 📚 Study
-### SwiftUI
+
+
+<details>
+    <summary><b>SwiftUI</b></summary>
+<div>
+    
 - **SwiftUI overview**    
 SwiftUI is a **declarative framework** for building apps for any Apple platform. SwiftUI provides a common API that you can use to define an app’s user interface and platform-specific behavior.    
 Create apps more quickly and with fewer errors with these key SwiftUI features:    
-    - **Declarative synta**—Define which views appear onscreen - using simple Swift structures.    
+    - **Declarative syntax**—Define which views appear onscreen - using simple Swift structures.    
     - **A compositional API**—Quickly create and iterate your user interface using built-in views and modifiers. Compose more complex views by combining simpler views.    
     - **A powerful layout system**—Easily arrange views onscreen relative to their parent views and to each other. When existing views and controls don’t suit your needs, you can draw your own.    
     - **Views that reflect app data**—Define a view’s data dependencies, and SwiftUI automatically updates the view when data changes, avoiding errors from invalid view states.    
@@ -48,25 +53,52 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     - View 프로토콜을 준수하며 View를 반환하는 body 속성의 단일 요구사항
         - View의 콘텐츠, 레이아웃, 동작을 설명
     - 캔버스에 표시할 해당 Viewdml preview를 정의
+    
+</div>
+</details>
 
-### Text
+<details>
+    <summary><b>Text</b></summary>
+<div>
+    
 - `.font()` modifier(수정자)로 텍스트 크기를 조절할 수 있음
+</div>
+</details>
 
-### SF Symbols
+<details>
+    <summary><b>SF Symbols</b></summary>
+<div>
+    
 - System이 SF Symbols의 이미지는 font처럼 취급하여 사용자의 디바이스 설정에 따라 동적으로 확장됨
+</div>
+</details>
 
-### Alignment
-- 정렬의 기본 동작은 **center**이지만 재정의하여 정렬 가능
+<details>
+    <summary><b>HorizontalAlignment</b></summary>
+<div>
+    
+- VStack의 alignment는 HorizontalAlignment 타입
+- VStack 정렬의 기본 동작은 **center**이지만 재정의하여 정렬 가능
 - 일부 system은 left, right를 사용하지만 SwiftUI는 **leading, trailing 정렬을 사용하여 앱의 현지화를 용이하게 함**
 - 직접 지정해주는 방법도 있지만 VStack 선택 후 Attributes inspector에서 Alignment 옵션을 사용하여 정렬을 설정할 수도 있음
+</div>
+</details>
 
-### Supplement accessibility data (접근성 보완)
+<details>
+    <summary><b>Supplement accessibility data (접근성 보완)</b></summary>
+<div>
+    
 - SwiftUI에는 접근성 기능이 내장되어 있음
 - 약간의 추가 작업으로 접근성 지원을 받을 수 있음
 - 예) Text view의 문자열 콘텐츠에 자동으로 접근 가능, 하지만 사용자의 접근성 환경을 개선하기 위해 추론된 데이터를 보완해야 할 수 있음
 - `.accessibilityAddTraits()`를 사용하면 특성을 추가해서 읽어주는 것, 예시대로 `.isHeader`를 넣으면 사용한 요소와 함께 "heading"이라고 읽어주어 view 의 information architecture를 전달하는 데 도움이 됨
+</div>
+</details>
 
-### Label
+<details>
+    <summary><b>Label</b></summary>
+<div>
+    
 - 제목이 있는 아이콘으로 구성된 표준 레이블
 - 가장 일반적인 것은 아이콘 + 레이블 조합
 - `.labelStyle()` 수정자를 통해 타이틀만 보이게, 아이콘만 보이게, 둘 다 보이게 설정할 수 있음
@@ -76,13 +108,37 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     - TrailingIconLabelStyle.swift 파일 참고!
 - icon 부분에 SF Symbol과 같은 이미지 대신 programmatically하게 view를 사용하여 레이블을 만드는 것도 가능함    
 예) `Circle()` 
+</div>
+</details>
+
+<details>
+    <summary><b>List</b></summary>
+<div>
+
+- List를 사용하여 단순히 생성하는 경우 아래와 같은 오류가 발생함
+    > Initializer 'init(_:rowContent:)' requires that 'DailyScrum' conform to 'Identifiable'
+    > ➜ DailyScrum이 Identifiable을 준수해야 함!!
+- 왜 내부에 들어갈 데이터 타입은 Identifiable을 준수해야 할까?
+    - List의 정의부는 다음과 같음
+        `@MainActor struct List<SelectionValue, Content> where SelectionValue : Hashable, Content : View`
+        데이터 타입에 해당하는 SelectionValue가 Hashable을 채택하고 있기 때문!
+    - 공식 튜토리얼상 컬렉션의 개별 item을 식별하는 방법이 필요하기 때문! 튜토리얼에는 모든 테스트 데이터가 다른 이름을 가지고 있으므로 해당 속성을 키 값의 경로로 사용하도록 `id: \.title`으로 설정해줌
+- 튜토리얼상 테스트 데이터는 다른 이름을 가지고 있었지만 사용자가 동일한 이름으로 새 데이터를 생성하는 경우 문제가 발생함!
+    - 사용자가 생성한 콘텐츠로 작업하기 위해 SelectionValue가 ID를 전달하는 identifiable 프로토콜을 준수할 수 있음
+    - identifiable은 채택하면 엔티티에 대한 안정적인 식별자를 제공하기 위한 id 프로퍼티를 요구함
+    - UUID()를 데이터 모델의 초기화자에 사용하면 매개변수의 기본값을 정의하기 위해 초기화자나 함수를 호출할 때 해당 매개변수를 생략할 수 있음
+    
+</div>
+</details>
+    
+
 
 ## 🏀 Trouble Shooting
 
 ## ✅ Check List
 - [ ] iOS App Dev Tutorials (SwiftUI)
     - [x] SwiftUI essentials
-    - [ ] Views
+    - [x] Views
     - [ ] Navigation and modal presentation
     - [ ] Passing Data
     - [ ] State management
@@ -91,11 +147,16 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
 - [ ] UIKit과 SwiftUI의 차이점
 - [ ] 미리보기에 static으로 프로퍼티를 선언해주는 이유?(Getting started with Scrumdinger)
 - [ ] where절 사용에 대한 공부(Using stacks to arrange views)
+- [ ] Hashable protocol
 
 ## 🔗 Reference Link
 - 튜토리얼 시 숙지가 필요한 Swift 공식문서
     - [The Basics](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/)
     - [Closures](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/)
+- [공식문서 - Text](https://developer.apple.com/documentation/swiftui/text/)
+- [공식문서 - HorizontalAlignment](https://developer.apple.com/documentation/swiftui/horizontalalignment)
+- [공식문서 - Label](https://developer.apple.com/documentation/swiftui/label)
+- [공식문서 - List](https://developer.apple.com/documentation/swiftui/list/)
 
 ## 💡 A-ha!
 - Creating a card view 파트의 Check Your Understanding
