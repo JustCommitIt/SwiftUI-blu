@@ -27,7 +27,7 @@
 [A-ha!](#-a-ha-)
 
 ## 🔑 Keyword
-`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `HorizontalAlignment`, `Supplement accessibility data`, `Label`, `List`
+`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `Alignment`, `Supplement accessibility data`, `Label`, `List`
 
 ## 📚 Study
 
@@ -74,13 +74,23 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
 </details>
 
 <details>
-    <summary><b>HorizontalAlignment</b></summary>
+    <summary><b>Alignment</b></summary>
 <div>
     
 - VStack의 alignment는 HorizontalAlignment 타입
 - VStack 정렬의 기본 동작은 **center**이지만 재정의하여 정렬 가능
 - 일부 system은 left, right를 사용하지만 SwiftUI는 **leading, trailing 정렬을 사용하여 앱의 현지화를 용이하게 함**
 - 직접 지정해주는 방법도 있지만 VStack 선택 후 Attributes inspector에서 Alignment 옵션을 사용하여 정렬을 설정할 수도 있음
+- **Alignment**
+        HorizontalAlignment와 VerticalAlignment를 포괄하는 상위 개념!
+        ZStack에 view를 배치하거나 `overlay(alignment:content:)` 또는 `background(alignment:content:)를 사용하여 다른 view 앞이나 뒤에 view를 배치하는 경우와 같이 특정 레이아웃 컨테이너 및 수정자의 동작을 지시하는 정렬 가이드
+        ![Alignment](https://docs-assets.developer.apple.com/published/09693fd98ab76356519a900fd33d9e7f/Alignment-1-iOS@2x.png)
+- **HorizontalAlignment**
+        VStack에서 뷰를 수직으로 배치할 때와 같이 수평으로 배치하는 방법에 대한 가이드
+        ![HorizontalAlignment](https://docs-assets.developer.apple.com/published/cb8ad6030a1ebcfee545d02f406500ee/HorizontalAlignment-1-iOS@2x.png)
+- **VerticalAlignment**
+        HStack에 뷰를 나란히 배치하거나 GridRow를 사용하여 Grid에 뷰 행을 생성할 때와 같이 뷰를 수직으로 배칠할 때의 정렬 가이드
+        ![VerticalAlignment](https://docs-assets.developer.apple.com/published/a63aa800a94319cd283176a8b21bb7af/VerticalAlignment-1-iOS@2x.png)
 </div>
 </details>
 
@@ -169,3 +179,8 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     }
     ```
     Foundation을 선택했는데 Color는 SwiftUI에 속해있는 것이다...! UIKit는 UIColor였음!
+- 모르고 사용하던 VStack의 alignment가 HorizontalAlignment속성이라는 것...!
+    >An Alignment contains a HorizontalAlignment guide and a VerticalAlignment guide.
+    
+    위의 공식문서 내용에 의하면 Alignment에는 HorizontalAlignment, VerticalAlignment guide가 포함되어 있다고 한다!
+    ➜ 즉, Alignment가 HorizontalAlignment와 VerticalAlignment를 포괄하는 상위 개념!
