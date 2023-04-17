@@ -169,7 +169,7 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
 - [공식문서 - List](https://developer.apple.com/documentation/swiftui/list/)
 
 ## 💡 A-ha!
-- Creating a card view 파트의 Check Your Understanding
+- **Creating a card view 파트의 Check Your Understanding**
     > Which framework should you import to define the structure?
     ```swift
     struct Person {
@@ -179,8 +179,28 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     }
     ```
     Foundation을 선택했는데 Color는 SwiftUI에 속해있는 것이다...! UIKit는 UIColor였음!
-- 모르고 사용하던 VStack의 alignment가 HorizontalAlignment속성이라는 것...!
+- **모르고 사용하던 VStack의 alignment가 HorizontalAlignment속성이라는 것...!**
     >An Alignment contains a HorizontalAlignment guide and a VerticalAlignment guide.
     
     위의 공식문서 내용에 의하면 Alignment에는 HorizontalAlignment, VerticalAlignment guide가 포함되어 있다고 한다!
     ➜ 즉, Alignment가 HorizontalAlignment와 VerticalAlignment를 포괄하는 상위 개념!
+- **Creating a navigation hierarchy 파트의 Check Your Understanding**
+    > Which code snippet displays the navigation title in the NavigationStack?
+    ```swift
+    struct ListView: View {
+        var body: some View {
+            NavigationStack {
+                List {
+                    Section(header: Text("Cats")) {
+                        NavigationLink(destination: CatsView()) {
+                            Text("Duncan")
+                        }
+                    }
+                }
+                .navigationTitle("Adoptable Animals")
+            }
+        }
+    }
+    ```
+    title이나 bar item과 같은 navigation modifier(수정자)를 child view에 추가하면 시스템에서 modifier를 parent `NavigationStack`에 전파함!
+    ➜ NavigationLink 자체에는 navigation title을 추가하지 않음!
