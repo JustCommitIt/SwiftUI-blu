@@ -27,7 +27,7 @@
 [A-ha!](#-a-ha-)
 
 ## 🔑 Keyword
-`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `Alignment`, `Supplement accessibility data`, `Label`, `List`
+`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `Alignment`, `Supplement accessibility data`, `Label`, `List`, `NavigationStack`, `Property wrapper`
 
 ## 📚 Study
 
@@ -141,7 +141,31 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
 </div>
 </details>
     
-
+<details>
+    <summary><b>Property wrapper</b></summary>
+<div>
+    
+- 일반적인 프로퍼티 초기화 패턴을 캡슐화하여 속성에 동작을 효율적으로 추가하는 데 도움을 줌
+- SwiftUI는 `@State` 및 `@Binding` 프로퍼티 래퍼를 사용하여 뷰가 쉽게 액세스할 수 있는 정보 소스를 유지하는 데 도움을 줌
+- `State`
+    - 프로퍼티를 `@State로 선언하면 view 내에서 신뢰할 수 있는 데이터 원본이 생성됨
+    - 시스템은 `@State` 속성 값에 따라 달라지는 view의 모든 요소를 식별함
+    - 사용자의 상호작용은 `@State` 프로퍼티를 변경할 수 있음
+    - 시스템은 해당 프로퍼티애 의존하는 view를 업데이트하여 새로운 버전의 UI를 렌더링함
+        - 영구적인 상태보다 **일시적인** 상태를 관리하는 데 도움이 되므로 state property를 private로 선언하는 것을 권장 (예: 버튼의 강조 표시 상태, 필터 설정, 현재 선택된 목록 등)
+    - view structure에 로컬인 가변 소스를 정의하기 위한 구문
+    - 그렇다면, 다른 뷰애서 동일한 데이터 소스를 사용하려면?! ➜ Binding
+- `Binding`
+    - `@Binding`으로 래핑하는 프로퍼티는 `@State` 프로퍼티와 같은 기존 소스와 읽기 및 쓰기 접근권한을 공유함
+    - 데이터를 직접 저장하지 않는 대신 기존 정보 소스와 해당 데이터를 표시하고 업데이트하는 view 사이에 양방향 연결을 생성
+    - 이 연결을 통해 데이터와 연결된 여러 보기가 동기화됨
+    - 시스템은 `@State`의 데이터와 `@Binding`이 포함된 view 간에 종속성을 설정함
+    - 상위/하위 view는 원본으로 정의한 프로퍼티를 읽거나 수정할 수 있음
+    - binding을 사용하여 신뢰할 수 있는 단일 데이터 소스를 전파하는 패턴은 view 계층 구조에 효과적임!
+    ➜ 데이터 소스의 변화를 관찰하는 코드를 별도로 작성하지 않아도 되기 때문!
+    
+</div>
+</details>
 
 ## 🏀 Trouble Shooting
 
