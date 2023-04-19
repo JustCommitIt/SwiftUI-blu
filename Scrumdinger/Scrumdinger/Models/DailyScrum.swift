@@ -12,6 +12,14 @@ struct DailyScrum: Identifiable {
     var title: String
     var attendees: [Attendee]
     var lengthInMinutes: Int
+    var lengthInMinutesAsDouble: Double {
+        get {
+            Double(lengthInMinutes)
+        }
+        set {
+            lengthInMinutes = Int(newValue)
+        }
+    }
     var theme: Theme
 
     // ✨TIP: UUID()를 데이터 모델의 초기화자에 사용하면 매개변수의 기본값을 정의하기 위해 초기화자나 함수를 호출할 때 해당 매개변수를 생략할 수 있음
@@ -37,6 +45,10 @@ extension DailyScrum {
 }
 
 extension DailyScrum {
+    static var emptyScrum: DailyScrum {
+        DailyScrum(title: "", attendees: [], lengthInMinutes: 5, theme: .sky)
+    }
+
     static let sampleData: [DailyScrum] =
     [
         DailyScrum(title: "Design",
