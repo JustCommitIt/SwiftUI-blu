@@ -24,7 +24,7 @@
 
 [Reference Link](#-reference-link)
 
-[A-ha!](#-a-ha-)
+[A-ha!](#-a-ha)
 
 ## 🔑 Keyword
 `SwiftUI` , `Stack`, `Text`, `SF Symbols`, `Alignment`, `Supplement accessibility data`, `Label`, `List`, `NavigationStack`, `Property wrapper`
@@ -173,7 +173,7 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
 - [ ] iOS App Dev Tutorials (SwiftUI)
     - [x] SwiftUI essentials
     - [x] Views
-    - [ ] Navigation and modal presentation
+    - [x] Navigation and modal presentation
     - [ ] Passing Data
     - [ ] State management
 
