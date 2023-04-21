@@ -228,3 +228,12 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     ```
     title이나 bar item과 같은 navigation modifier(수정자)를 child view에 추가하면 시스템에서 modifier를 parent `NavigationStack`에 전파함!
     ➜ NavigationLink 자체에는 navigation title을 추가하지 않음!
+
+<details>
+    <summary><b>깜빡일지</b></summary>
+<div>
+
+`23.04.21`
+
+</div>
+</details>
