@@ -8,7 +8,7 @@
 // ✨TIP: View를 생성하지 않고도 SwiftUI 프레임워크를 사용하기 위해 Foundation 대신 SwiftUI 써줌
 import SwiftUI
 
-enum Theme: String {
+enum Theme: String, CaseIterable, Identifiable {
     case bubblegum
     case buttercup
     case indigo
@@ -41,5 +41,9 @@ enum Theme: String {
 
     var name: String {
         rawValue.capitalized
+    }
+
+    var id: String {
+        name
     }
 }
