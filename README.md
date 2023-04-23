@@ -174,7 +174,7 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     - [x] SwiftUI essentials
     - [x] Views
     - [x] Navigation and modal presentation
-    - [ ] Passing Data
+    - [x] Passing Data
     - [ ] State management
 
 - [ ] 선언형 프레임워크란?
@@ -228,7 +228,20 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     ```
     title이나 bar item과 같은 navigation modifier(수정자)를 child view에 추가하면 시스템에서 modifier를 parent `NavigationStack`에 전파함!
     ➜ NavigationLink 자체에는 navigation title을 추가하지 않음!
-
+- **Passing data with bindings 파트의 Check your Understanding**
+    > What is the type of $book.identifier?
+     ```swift
+     struct Book {
+     var title: String
+     var identifier: Int
+     }
+    
+     @State private var book = Book(title: "The Adventures of Smudge", identifier: 19237)
+     ```
+    정답: `Binding<Int>`
+    Binding 된 타입의 내부의 속성 타입은 해당 타입만을 기술하는 것이 아닌 `Binding<Type>`임!
+    위의 경우 `Int`가 아닌 `Binding<Int>`임!
+    
 <details>
     <summary><b>깜빡일지</b></summary>
 <div>
