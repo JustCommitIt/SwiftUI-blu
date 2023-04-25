@@ -146,7 +146,13 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     
 - 일반적인 프로퍼티 초기화 패턴을 캡슐화하여 속성에 동작을 효율적으로 추가하는 데 도움을 줌
 - SwiftUI는 `@State` 및 `@Binding` 프로퍼티 래퍼를 사용하여 뷰가 쉽게 액세스할 수 있는 정보 소스를 유지하는 데 도움을 줌
-- `State`
+- **값 타입**의 경우 `@State` 및 `@Binding`을 사용
+- **참조 타입**의 경우 `@ObservedObject`, `@StateObject`, `@EnvironmentObject`를 사용
+    - 참조 타입의 경우 프로퍼티 래퍼를 사용하기 위해서 관찰 가능하게(observable) 만들어야 함
+    - `ObservableObject` 프로토콜을 채택하여 클래스를 관찰 가능하게 만들고 각 속성 선언 시 `@Published` 키워드를 추가함
+
+<값 타입 property wrapper>
+- `@State`
     - 프로퍼티를 `@State로 선언하면 view 내에서 신뢰할 수 있는 데이터 원본이 생성됨
     - memberwise initializer에서 초기값을 설정하는 것을 방지하기 위해 private로 선언해야 함
     - Class와 같은 참조 타입을 저장해야 하는 경우 `StateObject`를 사용
@@ -158,7 +164,7 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     - view structure에 로컬인 가변 소스를 정의하기 위한 구문
     - 그렇다면, 다른 뷰(하위 뷰)에서 동일한 데이터 소스를 사용하려면?! ➜ Binding을 전달하면 됨!
         - 속성 이름 앞에 달러 기호($)를 붙이면 해당 상태의 projectedValue에 접근하여 State Value에 대한 바인딩을 가져올 수 있음
-- `Binding`
+- `@Binding`
     - `@Binding`으로 래핑하는 프로퍼티는 `@State` 프로퍼티와 같은 기존 소스와 읽기 및 쓰기 접근권한을 공유함
     - 데이터를 직접 저장하지 않는 대신 기존 정보 소스와 해당 데이터를 표시하고 업데이트하는 view 사이에 양방향 연결을 생성
     - 이 연결을 통해 데이터와 연결된 여러 보기가 동기화됨
@@ -166,7 +172,19 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     - 상위/하위 view는 원본으로 정의한 프로퍼티를 읽거나 수정할 수 있음
     - binding을 사용하여 신뢰할 수 있는 단일 데이터 소스를 전파하는 패턴은 view 계층 구조에 효과적임!
     ➜ 데이터 소스의 변화를 관찰하는 코드를 별도로 작성하지 않아도 되기 때문!
-    
+
+<참조 타입 property wrapper>
+- `@StateObject`
+    - App, Scene, View 내부에서 관찰 가능한(observable) 개체를 만듦
+    - 시스템은 개체를 초기화하고 개체를 전달하는 다른 view에서 사용할 수 있도록 개체를 유지
+- `@ObservedObject`
+    - 상위 소스에서 개체를 수신했음을 알려주는 프로퍼티 래퍼
+    - 상위 구조에서 개체를 생성하고 소유하고 있으므로 하위 뷰는 `ObservedObject`에 대한 초기값이 필요하지 않음
+- `@EnvironmentObject`
+    - 위 2개의 프로퍼티 래퍼는 상하위 view가 명확한 경우 사용하지만, `EnvironmentObject`는 복잡한 view 계층구조에서 관찰 가능한 개체를 공유함
+    - 이니셜라이저를 통해 개체를 전달하는 대신 `environmentObject(_:)` 수정자를 통해 개체를 environment에 배치
+    - 배치된 개체는 중간 view에 대한 참조가 없더라도 사용 가능
+    - 중간 view에서 불필요한 종속성을 생성하지 않도록 도와줌
 </div>
 </details>
 
@@ -196,6 +214,7 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
 - [공식문서 - Label](https://developer.apple.com/documentation/swiftui/label)
 - [공식문서 - List](https://developer.apple.com/documentation/swiftui/list/)
 - [공식문서 - Property Wrappers](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Property-Wrappers)
+- [공식아티클 - Managing model data in your app](https://developer.apple.com/documentation/swiftui/managing-model-data-in-your-app)
 
 ## 💡 A-ha!
 - **Creating a card view 파트의 Check Your Understanding**
