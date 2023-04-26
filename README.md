@@ -27,7 +27,7 @@
 [A-ha!](#-a-ha)
 
 ## 🔑 Keyword
-`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `Alignment`, `Supplement accessibility data`, `Label`, `List`, `NavigationStack`, `Property wrappers`
+`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `Alignment`, `Supplement accessibility data`, `Label`, `List`, `NavigationStack`, `Property wrappers`, `Scene`, `View life cycle events`
 
 ## 📚 Study
 
@@ -151,7 +151,7 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     - 참조 타입의 경우 프로퍼티 래퍼를 사용하기 위해서 관찰 가능하게(observable) 만들어야 함
     - `ObservableObject` 프로토콜을 채택하여 클래스를 관찰 가능하게 만들고 각 속성 선언 시 `@Published` 키워드를 추가함
 
-<값 타입 property wrapper>
+**값 타입 property wrapper**
 - `@State`
     - 프로퍼티를 `@State로 선언하면 view 내에서 신뢰할 수 있는 데이터 원본이 생성됨
     - memberwise initializer에서 초기값을 설정하는 것을 방지하기 위해 private로 선언해야 함
@@ -173,7 +173,7 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     - binding을 사용하여 신뢰할 수 있는 단일 데이터 소스를 전파하는 패턴은 view 계층 구조에 효과적임!
     ➜ 데이터 소스의 변화를 관찰하는 코드를 별도로 작성하지 않아도 되기 때문!
 
-<참조 타입 property wrapper>
+**참조 타입 property wrapper**
 - `@StateObject`
     - App, Scene, View 내부에서 관찰 가능한(observable) 개체를 만듦
     - 시스템은 개체를 초기화하고 개체를 전달하는 다른 view에서 사용할 수 있도록 개체를 유지
@@ -187,6 +187,41 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     - 중간 view에서 불필요한 종속성을 생성하지 않도록 도와줌
 </div>
 </details>
+    
+<details>
+<summary><b>Scene</b></summary>
+<div>
+    
+**Scene architecture**    
+- Scene
+    - 시스템이 관리하는 수명주기가 있는 앱 User interface의 일부
+    - 앱이 제공하는 view 계층 구조의 컨테이너
+    - iOS, WatchOS에서는 하나의 Scene만 display할 수 있지만, macOS나 iPadOS의 경우 여러 Scene을 사용할 수 있음
+- 앱을 만들기 위해서는 `App` 프로토콜을 준수하는 구조를 정의해야 함, 정의부에 `@main` 속성을 사용하여 앱의 유일한 진입점임을 시스템에 알림
+- App structure의 본문에 `Scene` 프로토콜을 준수하는 하나 이상의 Scene을 추가
+- SwiftUI는 `WindowGroup`과 같은 구체적인 Scene을 제공
+
+**Scene phases and transitions**
+- App 실행 중에 Scene은 세 단계로 전환될 수 있음
+![Scene Phases](https://docs-assets.developer.apple.com/published/d98f744283ca9cfb101e137d778d4611/SUI067_010-040@2x.png)
+- `active`: Scene이 foreground에 있고, 사용자와 상호작용 할 수 있는 단계
+- `inactive`: Scene을 볼 수 있지만 system이 상호작용을 비활성화한 단계
+- `background`: 앱이 실행 중이지만 사용자 인터페이스에 표시되지 않는 단계, 앱 종료 전 단계
+- `scenePhase` environment 값을 사용하여 Scene의 현재 상태를 읽을 수 있음
+- `onChange(of:perform:)` 수정자를 사용하면 Scene이 `inactive`한 단계가 됐을 때 앱 데이터를 저장하는 작업이 가능
+</div>
+</details>
+
+<details>
+    <summary><b>View life cycle events</b></summary>
+<div>
+    
+- view의 생명주기 이벤트에 대해 응답하는 세 가지 수정자
+- `onAppear(perform:)`: view가 화면에 그려질 때마다 응답
+- `onDisappear(perform:)`: view가 화면에서 사라질 때 응답
+- `task(priority:_:)`: view가 화면에 나타나기 전 비동기 작업을 수행
+</div>
+</details>
 
 ## 🏀 Trouble Shooting
 
@@ -197,6 +232,9 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     - [x] Navigation and modal presentation
     - [x] Passing Data
     - [ ] State management
+    - [ ] Persistence and concurrency
+    - [ ] Drawing
+    - [ ] Recording audio
 
 - [ ] 선언형 프레임워크란?
 - [ ] UIKit과 SwiftUI의 차이점
@@ -215,6 +253,7 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
 - [공식문서 - List](https://developer.apple.com/documentation/swiftui/list/)
 - [공식문서 - Property Wrappers](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Property-Wrappers)
 - [공식아티클 - Managing model data in your app](https://developer.apple.com/documentation/swiftui/managing-model-data-in-your-app)
+- [WWDC21 - Demystify SwiftUI](https://developer.apple.com/videos/play/wwdc2021/10022/)
 
 ## 💡 A-ha!
 - **Creating a card view 파트의 Check Your Understanding**
