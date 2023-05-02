@@ -305,7 +305,7 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     <summary><b>깜빡일지</b></summary>
 <div>
 
-`23.04.21`
+`23.04.21`, `23.05.02`
 
 </div>
 </details>
