@@ -23,6 +23,7 @@
 		F09D40FF29E8FADD00197CF2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D40FE29E8FADD00197CF2 /* Theme.swift */; };
 		F09D410129E90A3200197CF2 /* DailyScrum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D410029E90A3200197CF2 /* DailyScrum.swift */; };
 		F09D410329E90AD800197CF2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09D410229E90AD800197CF2 /* CardView.swift */; };
+		F0A459992A03E20200CBDEEB /* MeetingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A459982A03E20200CBDEEB /* MeetingFooterView.swift */; };
 		F0B5CA9B29ED87E200F53F9E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B5CA9A29ED87E200F53F9E /* DetailView.swift */; };
 		F0B5CA9D29F0324100F53F9E /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B5CA9C29F0324100F53F9E /* DetailEditView.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		F09D40FE29E8FADD00197CF2 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F09D410029E90A3200197CF2 /* DailyScrum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScrum.swift; sourceTree = "<group>"; };
 		F09D410229E90AD800197CF2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F0A459982A03E20200CBDEEB /* MeetingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingFooterView.swift; sourceTree = "<group>"; };
 		F0B5CA9A29ED87E200F53F9E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F0B5CA9C29F0324100F53F9E /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 				F003B48D29E91F9F00C5998E /* TrailingIconLabelStyle.swift */,
 				F012B10B29F42A5B0094DF87 /* ThemePicker.swift */,
 				F012B10929F429140094DF87 /* ThemeView.swift */,
+				F0A459982A03E20200CBDEEB /* MeetingFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				F09D410129E90A3200197CF2 /* DailyScrum.swift in Sources */,
 				F0B5CA9B29ED87E200F53F9E /* DetailView.swift in Sources */,
 				F0500A3B29FE90C0001F448C /* MeetingHeaderView.swift in Sources */,
+				F0A459992A03E20200CBDEEB /* MeetingFooterView.swift in Sources */,
 				F0B5CA9D29F0324100F53F9E /* DetailEditView.swift in Sources */,
 				F003B48E29E91F9F00C5998E /* TrailingIconLabelStyle.swift in Sources */,
 				F09D40FF29E8FADD00197CF2 /* Theme.swift in Sources */,
