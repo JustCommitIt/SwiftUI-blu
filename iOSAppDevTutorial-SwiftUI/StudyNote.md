@@ -23,7 +23,7 @@
 [A-ha!](#-a-ha)
 
 ## 🔑 Keyword
-`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `Alignment`, `Supplement accessibility data`, `Label`, `List`, `NavigationStack`, `Property wrappers`, `Scene`, `View life cycle events`
+`SwiftUI` , `Stack`, `Text`, `SF Symbols`, `Alignment`, `Supplement accessibility data`, `Label`, `List`, `NavigationStack`, `Property wrappers`, `Scene`, `View life cycle events`, `AVPlayer`
 
 ## 📚 Study
 
@@ -232,7 +232,19 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     - [ ] Drawing
     - [ ] Recording audio
 
-- [ ] 선언형 프레임워크란?
+- [x] 선언형 프레임워크란?
+    - 주로 UI 개발에서 사용되어 선언형 UI라고도 함
+    - 원하는 결과를 명시(선언)하고 프레임워크가 자동으로 이를 구현하는 방식의 프로그래밍 패러다임을 말함
+    - 코드의 구체적인 로직을 작성하지 않고도 원하는 결과를 달성할 수 있음
+    - *어떤 방법*으로 해야 하는지를 나타내기 보다 *무엇*을 나타낼지를 묘사하는 것
+    - **왜 SwiftUI가 선언형 프레임워크인가?**
+        - UI를 구현하기 위해 코드를 작성하는 대신 UI의 레이아웃, 스타일, 상호작용을 명시(선언)하고 SwiftUI가 이를 처리하기 때문
+        - 선언적인 문법
+            개발자가 어떻게 UI를 만들지 명시하면 SwiftUI가 코드를 추상화하고 UI를 생성
+        - 상태 관리
+            앱의 상태를 관리하기 위해 데이터 바인딩을 사용, 상태 변경이 감지되면 자동으로 UI를 업데이트하고 변경사항을 적용함
+    - 이처럼 SwiftUI는 선언적 문법과 상태 관리를 통해 UI를 구현하는 간결하고 직관적인 선언형 프레임워크
+            
 - [ ] UIKit과 SwiftUI의 차이점
 - [ ] 미리보기에 static으로 프로퍼티를 선언해주는 이유?(Getting started with Scrumdinger)
 - [ ] where절 사용에 대한 공부(Using stacks to arrange views)
