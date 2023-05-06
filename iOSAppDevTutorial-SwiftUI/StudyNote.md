@@ -245,24 +245,41 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
             앱의 상태를 관리하기 위해 데이터 바인딩을 사용, 상태 변경이 감지되면 자동으로 UI를 업데이트하고 변경사항을 적용함
     - 이처럼 SwiftUI는 선언적 문법과 상태 관리를 통해 UI를 구현하는 간결하고 직관적인 선언형 프레임워크
             
-- [ ] UIKit과 SwiftUI의 차이점
-- [ ] 미리보기에 static으로 프로퍼티를 선언해주는 이유?(Getting started with Scrumdinger)
+- [x] UIKit과 SwiftUI의 차이점
+    - **UIKit**
+        - Event Driven
+            예를 들어 버튼이 눌렸을 때 버튼이 눌렸을 때 호출할 함수를 호출하고, 호출된 함수 내부에서 배경 색을 바꿈
+            이처럼 View는 자신이 어떻게 변화할지를 예상할 수 없음
+        - Objcect-C 기반으로 만들어진 프레임워크
+    - **SwiftUI** (WWDC19에서 발표)
+        - Data Driven
+        예를 들면 버튼이 눌렸을 때 버튼이 눌렸는지 확인하는 Bool 타입의 값을 변경, 상태에 맞게 이미 선언한 대로 View를 다시 그림
+        - Swift를 기반으로 만들어진 것
+    
+- [x] Preview struct 내에서 static으로 프로퍼티를 선언해주는 이유?(Getting started with Scrumdinger)
+    ![](https://hackmd.io/_uploads/r1JAicQ4h.png)
+    - preview는 시간이나 사용자 입력에 따라 변경되는 것이 아니라 정적인 뷰를 보여주는 것이 목적이기 때문에 사용되는 데이터도 정적인 데이터가 되어야 함
+    - static 프로퍼티는 인스턴스화 없이도 클래스나 구조체에서 직접 접근할 수 있는 프로퍼티이므로 preview에서도 쉽게 사용할 수 있기 때문
+    - preview에서는 데이터를 쉽게 수정하거나 변경할 수 있어야 하기 때문
+    - static 프로퍼티를 사용하면 view에서 사용되는 데이터를 따로 분리할 수 있기 때문, view와 데이터의 분리를 통해 더욱 모듈화된(기능 단위로 나누어진) 코드를 작성할 수 있음
+    
 - [ ] where절 사용에 대한 공부(Using stacks to arrange views)
 - [ ] Hashable protocol
 - [ ] Property Wrappers
 
 ## 🔗 Reference Link
 - 튜토리얼 시 숙지가 필요한 Swift 공식문서
-    - [The Basics](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/)
-    - [Closures](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/)
-- [공식문서 - Text](https://developer.apple.com/documentation/swiftui/text/)
-- [공식문서 - HorizontalAlignment](https://developer.apple.com/documentation/swiftui/horizontalalignment)
-- [공식문서 - Label](https://developer.apple.com/documentation/swiftui/label)
-- [공식문서 - List](https://developer.apple.com/documentation/swiftui/list/)
-- [공식문서 - Property Wrappers](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Property-Wrappers)
-- [공식아티클 - Managing model data in your app](https://developer.apple.com/documentation/swiftui/managing-model-data-in-your-app)
+    - [Swift doc - The Basics](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/)
+    - [Swift doc - Closures](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/)
+- [Apple Developer - Text](https://developer.apple.com/documentation/swiftui/text/)
+- [Apple Developer - HorizontalAlignment](https://developer.apple.com/documentation/swiftui/horizontalalignment)
+- [Apple Developer - Label](https://developer.apple.com/documentation/swiftui/label)
+- [Apple Developer - List](https://developer.apple.com/documentation/swiftui/list/)
+- [Apple Developer - Property Wrappers](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties/#Property-Wrappers)
+- [Apple Developer - Managing model data in your app](https://developer.apple.com/documentation/swiftui/managing-model-data-in-your-app)
 - [WWDC21 - Demystify SwiftUI](https://developer.apple.com/videos/play/wwdc2021/10022/)
-
+- [Swift doc - Control Flow(where)](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow#Where)
+    
 ## 💡 A-ha!
 - **Creating a card view 파트의 Check Your Understanding**
     > Which framework should you import to define the structure?
