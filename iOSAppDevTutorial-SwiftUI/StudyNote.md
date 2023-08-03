@@ -149,12 +149,12 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
 
 **값 타입 property wrapper**
 - `@State`
-    - 프로퍼티를 `@State로 선언하면 view 내에서 신뢰할 수 있는 데이터 원본이 생성됨
+    - 프로퍼티를 `@State`로 선언하면 view 내에서 신뢰할 수 있는 데이터 원본이 생성됨
     - memberwise initializer에서 초기값을 설정하는 것을 방지하기 위해 private로 선언해야 함
     - Class와 같은 참조 타입을 저장해야 하는 경우 `StateObject`를 사용
     - 시스템은 `@State` 속성 값에 따라 달라지는 view의 모든 요소를 식별함
     - 사용자의 상호작용은 `@State` 프로퍼티를 변경할 수 있음
-    - 시스템은 해당 프로퍼티애 의존하는 view를 업데이트하여 새로운 버전의 UI를 렌더링함
+    - 시스템은 해당 프로퍼티에 의존하는 view를 업데이트하여 새로운 버전의 UI를 렌더링함
         - 영구적인 상태보다 **일시적인** 상태를 관리하는 데 도움이 되므로 state property를 private로 선언하는 것을 권장 (예: 버튼의 강조 표시 상태, 필터 설정, 현재 선택된 목록 등)
     - State의 기본값에 접근하기 위해서는 WrappedValue 속성을 사용해야 하지만 shortcut으로 swift를 사용하면 State 인스턴스를 직접 참조하여 래핑된 값에 접근할 수 있음
     - view structure에 로컬인 가변 소스를 정의하기 위한 구문
@@ -329,13 +329,4 @@ Create apps more quickly and with fewer errors with these key SwiftUI features:
     정답: `Binding<Int>`
     Binding 된 타입의 내부의 속성 타입은 해당 타입만을 기술하는 것이 아닌 `Binding<Type>`임!
     위의 경우 `Int`가 아닌 `Binding<Int>`임!
-    
-<details>
-    <summary><b>깜빡일지</b></summary>
-<div>
-
-`23.04.21`, `23.05.02`
-
-</div>
-</details>
 
