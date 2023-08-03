@@ -21,6 +21,7 @@ struct DailyScrum: Identifiable {
         }
     }
     var theme: Theme
+    var history: [History] = []
 
     // ✨TIP: UUID()를 데이터 모델의 초기화자에 사용하면 매개변수의 기본값을 정의하기 위해 초기화자나 함수를 호출할 때 해당 매개변수를 생략할 수 있음
     init(id: UUID = UUID(), title: String, attendees: [String], lengthInMinutes: Int, theme: Theme) {
